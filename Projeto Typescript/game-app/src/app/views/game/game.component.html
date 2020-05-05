@@ -1,0 +1,23 @@
+<h2>Meus Jogos</h2>
+<ul>
+  <li *ngFor="let game of games" (click)="selectGame(game)">
+    {{game.name}} - {{game.status}}
+    <button (click)="remove(game.id);">Remover</button>
+  </li>
+</ul>
+
+<div *ngIf="selGame">
+
+  <input type="text" placeholder="Game name" [(ngModel)]="selGame.name">
+  <br>
+  <input type="text" placeholder="status" [(ngModel)]="selGame.status">
+  <br>
+  <input type="text" placeholder="genre" [(ngModel)]="selGame.genre">
+  <br>
+  <input type="text" placeholder="platform" [(ngModel)]="selGame.platform">
+  <br>
+  <button (click)="save();">Salvar</button>
+  <button (click)="cancel();">Cancelar</button>
+</div>
+
+<button (click)="newGame();">Novo Game</button>
