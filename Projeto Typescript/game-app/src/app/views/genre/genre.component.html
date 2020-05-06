@@ -1,0 +1,17 @@
+<h2>Generos</h2>
+<ul>
+  <li *ngFor="let genre of genres" (click)="selectGenre(genre)">
+    {{genre.name}}
+    <button (click)="remove(genre.id);">Remover</button>
+  </li>
+</ul>
+
+<div *ngIf="selGenre">
+
+  <input type="text" placeholder="Genre name" [(ngModel)]="selGenre.name">
+  <br>
+  <button (click)="save();">Salvar</button>
+  <button (click)="cancel();">Cancelar</button>
+</div>
+
+<button (click)="newGenre();">Novo Genero</button>
